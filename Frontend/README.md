@@ -1,16 +1,57 @@
-# React + Vite
+# Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Overview
+A simple frontend application for user registration and CRUD operations.
 
-Currently, two official plugins are available:
+## Features
+- **User Registration** - Create new user accounts
+- **Create** - Add new records
+- **Read** - View existing records
+- **Update** - Modify record information
+- **Delete** - Remove records
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Getting Started
 
-## React Compiler
+### Prerequisites
+- Node.js (v14 or higher)
+- npm or yarn
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### Installation
+```bash
+npm install
+```
 
-## Expanding the ESLint configuration
+### Running the Application
+```bash
+npm start
+```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+The application will run on `http://localhost:3000`
+
+## Usage
+
+### Registration
+1. Navigate to the registration page
+2. Enter your details
+3. Click submit to create an account
+
+### CRUD Operations
+- **Create** - Use the "Add New" button to create records
+- **Read** - View all records on the dashboard
+- **Update** - Click edit on any record to modify
+- **Delete** - Click delete to remove records
+
+## Project Structure
+```
+/src
+    /components
+    /pages
+    /services
+    /styles
+```
+
+## Contributing
+Pull requests are welcome.
+
+## License
+MIT
