@@ -26,7 +26,7 @@ npm install
 npm start
 ```
 
-The application will run on `http://localhost:3000`
+The application will run on `http://localhost:5000`
 
 ## Usage
 
@@ -54,4 +54,3 @@ The application will run on `http://localhost:3000`
 Pull requests are welcome.
 
 ## License
-MIT
