@@ -1,12 +1,13 @@
-import Task from "../models/task.model.js";
+import {
+  createTaskService,
+  getTasksService,
+  updateTaskService,
+  deleteTaskService
+} from "../services/task.service.js";
 
 export const createTask = async (req, res, next) => {
   try {
-    const task = await Task.create({
-      title: req.body.title,
-      user: req.user.id
-    });
-
+    const task = await createTaskService(req.body, req.user.id);
     res.status(201).json(task);
   } catch (error) {
     next(error);
@@ -15,9 +16,13 @@ export const createTask = async (req, res, next) => {
 
 export const getTasks = async (req, res, next) => {
   try {
-    const tasks = await Task.find({ user: req.user.id });
-
-    res.status(200).json(tasks);
+    const { page = 1, limit = 10 } = req.query;
+    const result = await getTasksService(
+      req.user.id,
+      Number(page),
+      Number(limit)
+    );
+    res.status(200).json(result);
   } catch (error) {
     next(error);
   }
@@ -25,12 +30,11 @@ export const getTasks = async (req, res, next) => {
 
 export const updateTask = async (req, res, next) => {
   try {
-    const task = await Task.findByIdAndUpdate(
+    const task = await updateTaskService(
       req.params.id,
       req.body,
-      { new: true }
+      req.user.id
     );
-
     res.status(200).json(task);
   } catch (error) {
     next(error);
@@ -39,9 +43,11 @@ export const updateTask = async (req, res, next) => {
 
 export const deleteTask = async (req, res, next) => {
   try {
-    await Task.findByIdAndDelete(req.params.id);
-
-    res.status(200).json({ message: "Task deleted" });
+    const result = await deleteTaskService(
+      req.params.id,
+      req.user.id
+    );
+    res.status(200).json(result);
   } catch (error) {
     next(error);
   }
